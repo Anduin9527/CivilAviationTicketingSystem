@@ -1,6 +1,8 @@
 # CivilAviationTicketingSystem
 南京邮电大学大一C++程序设计作业
 
+![CAT](https://i.loli.net/2021/04/12/ecmFQEv29pq5iKj.png)
+
 ## class Flight
 
 #### 数据成员D

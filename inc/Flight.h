@@ -14,6 +14,8 @@ public:
   int Price;
   int RemainTickit;
   bool Late;
+  Flight() = default;
+  ~Flight();
 
 private:
   void Add(string FNumber, string Airways,
@@ -24,5 +26,5 @@ private:
            string startPoint, string endPoint,
            Date PlanDepartureTime, Date PlanArrivalTime,
            int Price, int Tickits);
-
+  void Delete(string FNumber);
 };
