@@ -39,6 +39,6 @@
 
 ## class user :: Admin
 
-\- Book bool
+\- Book int
 
 \- Trusted bool
