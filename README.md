@@ -27,7 +27,7 @@
 
 \- void Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
-\- void Set(FNumber,,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\- void Set(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
 \- void Delete(FNumber)
 
@@ -39,6 +39,11 @@
 
 ## class user :: Admin
 
-\- Book int
+\- BookNumber int
 
 \- Trusted bool
+
+\+ Book(FNumber,DateNow)
+
+\+ Refond(FNumber,DateNow)
+
