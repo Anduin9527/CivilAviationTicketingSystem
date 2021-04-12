@@ -24,5 +24,5 @@ private:
            string startPoint, string endPoint,
            Date PlanDepartureTime, Date PlanArrivalTime,
            int Price, int Tickits);
-
+  void Delete(string FNumber);
 };
