@@ -5,17 +5,18 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void Flight::Add(string FNumber, string Airways,
-         string startPoint, string endPoint,
-         Date PlanDepartureTime, Date PlanArrivalTime,
-         int Price, int Tickits)
+Flight *Flight::Add(string FNumber, string Airways,
+                    string startPoint, string EndPoint,
+                    Date PlanDepartureTime, Date PlanArrivalTime,
+                    int Price, int Tickits)
 {
   this->FNumber = FNumber;
   this->Airways = Airways;
-  this->startPoint = startPoint;
-  this->endPoint = endPoint;
+  this->StartPoint = startPoint;
+  this->EndPoint = EndPoint;
   this->PlanDepartureTime = PlanDepartureTime;
   this->PlanArrivalTime = PlanArrivalTime;
   this->Price = Price;
   this->RemainTickit = Tickits;
+  return this;
 }

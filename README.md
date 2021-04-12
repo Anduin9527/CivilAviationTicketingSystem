@@ -1,25 +1,26 @@
 # CivilAviationTicketingSystem
-南京邮电大学大一C++程序设计作业
+
+南京邮电大学大一 C++程序设计作业
 
 ![CAT](https://i.loli.net/2021/04/12/ecmFQEv29pq5iKj.png)
 
 ## class Flight
 
-#### 数据成员D
+#### 数据成员 D
 
 \+ FNumber string
 
-\+ Airways string 
+\+ Airways string
 
-\+ startPoint string
+\+ StartPoint string
 
-\+ endPoint string
+\+ EndPoint string
 
 \+ PlanDepartureTime Date
 
 \+ PlanArrivalTime Date
 
-\+ Price int 
+\+ Price int
 
 \+ RemainTickit int
 
@@ -27,7 +28,7 @@
 
 \+ **friend** class Admin
 
-\- void Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\- Flight \*Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
 \- void Set(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
@@ -48,4 +49,3 @@
 \+ Book(FNumber,DateNow)
 
 \+ Refond(FNumber,DateNow)
-
