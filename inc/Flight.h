@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Date.h"
 using std::string;
 class Flight
 {
@@ -24,4 +25,4 @@ private:
            Date PlanDepartureTime, Date PlanArrivalTime,
            int Price, int Tickits);
   void Delete(string FNumber);
-}
+};
