@@ -15,7 +15,7 @@ void Flight::Add(string FNumber, string Airways,
   this->startPoint = startPoint;
   this->endPoint = endPoint;
   this->PlanDepartureTime = PlanDepartureTime;
-  this->
+  this->PlanArrivalTime = PlanArrivalTime;
   this->Price = Price;
-
+  this->RemainTickit = Tickits;
 }
