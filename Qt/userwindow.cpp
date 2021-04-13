@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QString>
 #include <ctime>
+#include <fstream>
 #include <iostream>
 UserWindow::UserWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::UserWindow) {
@@ -22,6 +23,11 @@ UserWindow::UserWindow(QWidget *parent)
     ui->editRemainTickit->setText(
         QString::fromStdString(std::to_string(FP->RemainTickit)));
     delete FP;
+  });
+  connect(ui->btnRegist, &QPushButton::clicked, [=] {
+    std::ofstream AddFile("Account.dat",
+                          std::ios::out | std::ios::app); //写入+追加模式
+
   });
 }
 
