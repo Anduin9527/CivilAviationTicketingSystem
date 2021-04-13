@@ -7,11 +7,11 @@
 ## TO DO
 
 - [ ] Date类
-- [ ] Flight类
+- [x] Flight类
   - [x] Add
   - [x] Delete
-  - [ ] Set
-  - [ ] Find
+  - [x] Set
+  - [x] Find
 - [ ] UI
   - [x] Login
   - [ ] Admin
