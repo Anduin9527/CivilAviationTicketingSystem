@@ -19,7 +19,8 @@ void Flight::Add(Flight &F) {
   AddFile << F.Airways << endl;
   AddFile << F.StartPoint << endl;
   AddFile << F.EndPoint << endl;
-  //在这里插入日期
+  AddFile << F.PlanDepartureTime <<endl;
+  AddFile << F.PlanArrivalTime <<endl;
   AddFile << F.Price << endl;
   AddFile << F.RemainTickit << endl;
   qDebug() << "写入！";
@@ -32,7 +33,8 @@ void Flight::Add(Flight &F) {
   File << F.Airways << endl;
   File << F.StartPoint << endl;
   File << F.EndPoint << endl;
-  //在这里插入日期
+  File << F.PlanDepartureTime <<endl;
+  File << F.PlanArrivalTime <<endl;
   File << F.Price << endl;
   File << F.RemainTickit << endl;
   AddFile.close();
@@ -54,7 +56,7 @@ void Flight::Delete(string FNumber) {
       if (!(getline(File, buf))) //未到末尾
         break;
       if (buf == FNumber) {
-        int n = 6; //跳过六组数据 尚未包含Date
+        int n = 8;
         while (n--)
           getline(File, buf);
       }
@@ -84,7 +86,10 @@ Flight *Flight::Find(string FNumber) {
   FP->StartPoint = str;
   getline(File, str);
   FP->EndPoint = str;
-  //在这里插入Date
+  getline(File, str);
+  FP->PlanDepartureTime = str;
+  getline(File, str);
+  FP->PlanArrivalTime = str;
   getline(File, str);
   FP->Price = std::stoi(str);
   getline(File, str);
