@@ -280,7 +280,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="groupLogin">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -301,7 +301,11 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="editPasswd"/>
+      <widget class="QLineEdit" name="editPasswd">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">

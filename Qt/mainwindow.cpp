@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
     F.Airways = ui->editAirways->text().toStdString();
     F.StartPoint = ui->editStartPoint->text().toStdString();
     F.EndPoint = ui->editEndPoint->text().toStdString();
-    F.PlanDepartureTime = ui->editPlanDepartureTime->text().toStdString();
-    F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
+//    F.PlanDepartureTime = ui->editPlanDepartureTime->text().toStdString();
+//    F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
     F.Price = ui->editPrice->text().toInt();
     F.RemainTickit = ui->editRemainTickit->text().toInt();
     F.Add(F);
@@ -33,8 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
     F.Airways = ui->editAirways->text().toStdString();
     F.StartPoint = ui->editStartPoint->text().toStdString();
     F.EndPoint = ui->editEndPoint->text().toStdString();
-    F.PlanDepartureTime = ui->editPlanDepartureTime->text().toStdString();
-    F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
+//    F.PlanDepartureTime = ui->editPlanDepartureTime->text().toStdString();
+//    F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
     F.Price = ui->editPrice->text().toInt();
     F.RemainTickit = ui->editRemainTickit->text().toInt();
     F.Set(F);
@@ -52,8 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->editAirways->setText(QString::fromStdString(FP->Airways));
     ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
     ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
-    ui->editPlanDepartureTime->setText(QString::fromStdString(FP->PlanDepartureTime));
-    ui->editPlanArrivalTime->setText(QString::fromStdString(FP->PlanArrivalTime));
+//    ui->editPlanDepartureTime->setText(QString::fromStdString(FP->PlanDepartureTime));
+//    ui->editPlanArrivalTime->setText(QString::fromStdString(FP->PlanArrivalTime));
     ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
     ui->editRemainTickit->setText(QString::fromStdString(std::to_string(FP->RemainTickit)));
     delete FP;
