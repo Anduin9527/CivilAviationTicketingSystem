@@ -28,11 +28,11 @@
 
 \+ **friend** class Admin
 
-\- Flight \*Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\+ Flight \*Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
-\- void Set(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\+ void Set(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
 
-\- void Delete(FNumber)
+\+ void Delete(FNumber)
 
 ## class Admin
 

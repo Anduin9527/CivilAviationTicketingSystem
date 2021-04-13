@@ -3,7 +3,7 @@
 #include <string>
 using std::string;
 class Flight {
-private:
+public:
   string FNumber;
   string Airways;
   string StartPoint;
@@ -14,10 +14,7 @@ private:
   int RemainTickit;
   bool Late;
 
-public:
-  void Add(string FNumber, string Airways, string StartPoint, string EndPoint,
-           Date *PlanDepartureTime, Date *PlanArrivalTime, int Price,
-           int Tickits);
+  void Add(Flight &F);
   void Set(string FNumber, string Airways, string StartPoint, string EndPoint,
            Date *PlanDepartureTime, Date *PlanArrivalTime, int Price,
            int Tickits);
