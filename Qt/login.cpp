@@ -18,8 +18,8 @@ Login::Login(QWidget *parent) : QWidget(parent), ui(new Ui::Login) {
     if (name == "admin" && password == "sast!") {
       QMessageBox::information(
           this, "欢迎您!", "道路千万条，数据第一条，操作不规范，亲人两行泪");
-          MainWindow *W=new MainWindow;
-          W->show();
+      MainWindow *W = new MainWindow;
+      W->show();
     } else
       QMessageBox::warning(this, "错误！",
                            "密码或用户名错误！旅客请直接使用旅客入口");

@@ -16,9 +16,9 @@
 
 \+ EndPoint string
 
-\+ PlanDepartureTime Date
+\+ PlanDepartureTime *Date
 
-\+ PlanArrivalTime Date
+\+ PlanArrivalTime *Date
 
 \+ Price int
 
@@ -38,7 +38,7 @@
 
 \- void Sort(file)
 
-\+ void Find(FNumber/SP/EP/Airways/Date)
+\+ void Find(FNumber/SP/EP/Airways/*Date)
 
 ## class user :: Admin
 
@@ -46,6 +46,6 @@
 
 \- Trusted bool
 
-\+ Book(FNumber,DateNow)
+\+ Book(FNumber,*DateNow)
 
-\+ Refond(FNumber,DateNow)
+\+ Refond(FNumber,*DateNow)

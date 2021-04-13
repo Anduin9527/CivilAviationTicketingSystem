@@ -4,7 +4,7 @@
 using std::string;
 class Flight
 {
-public:
+private:
   string FNumber;
   string Airways;
   string StartPoint;
@@ -14,17 +14,17 @@ public:
   int Price;
   int RemainTickit;
   bool Late;
-  Flight() = default;
-  ~Flight();
 
-private:
-  Flight *Add(string FNumber, string Airways,
-              string StartPoint, string EndPoint,
-              Date PlanDepartureTime, Date PlanArrivalTime,
-              int Price, int Tickits);
+public:
+  void Add(string FNumber, string Airways,
+           string StartPoint, string EndPoint,
+           Date PlanDepartureTime, Date PlanArrivalTime,
+           int Price, int Tickits);
   void Set(string FNumber, string Airways,
            string StartPoint, string EndPoint,
            Date PlanDepartureTime, Date PlanArrivalTime,
            int Price, int Tickits);
   void Delete(string FNumber);
+  Flight() = default;
+  ~Flight();
 };
