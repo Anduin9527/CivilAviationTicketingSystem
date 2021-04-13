@@ -4,9 +4,23 @@
 
 ![CAT](https://i.loli.net/2021/04/12/ecmFQEv29pq5iKj.png)
 
+## TO DO
+
+- [ ] Date类
+- [ ] Flight类
+  - [x] Add
+  - [x] Delete
+  - [ ] Set
+  - [ ] Find
+- [ ] UI
+  - [x] Login
+  - [ ] Admin
+  - [ ] user
+- [ ] Sort
+
 ## class Flight
 
-#### 数据成员 D
+#### 数据成员 
 
 \+ FNumber string
 
@@ -26,26 +40,12 @@
 
 \+ Late bool
 
-\+ **friend** class Admin
+#### 函数成员
 
-\+ Flight \*Add(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\+ void Add(&Flight)
 
-\+ void Set(FNumber,Airways,SP,EP,PDT,PAT,Price,Tickits)
+\+ void Set(&Flight)
 
 \+ void Delete(FNumber)
 
-## class Admin
 
-\- void Sort(file)
-
-\+ void Find(FNumber/SP/EP/Airways/*Date)
-
-## class user :: Admin
-
-\- BookNumber int
-
-\- Trusted bool
-
-\+ Book(FNumber,*DateNow)
-
-\+ Refond(FNumber,*DateNow)
