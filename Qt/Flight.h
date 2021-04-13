@@ -8,8 +8,8 @@ public:
   string Airways;
   string StartPoint;
   string EndPoint;
-  Date *PlanDepartureTime;
-  Date *PlanArrivalTime;
+  string PlanDepartureTime;
+  string PlanArrivalTime;
   int Price;
   int RemainTickit;
   bool Late;
