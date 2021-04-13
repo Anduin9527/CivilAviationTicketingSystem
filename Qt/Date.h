@@ -1,11 +1,20 @@
 #ifndef DATE_H
 #define DATE_H
 
+#include <iostream>
 
-class Date
-{
+class Date {
+private:
+  int year;
+  int month;
+  int day;
+  int hour;
+  int minute;
+
 public:
-    Date();
+  Date(int a = 0, int b = 0, int c = 0, int d = 0, int e = 0);
+  ~Date();
+  void getDate();
 };
 
 #endif // DATE_H

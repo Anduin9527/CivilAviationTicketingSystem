@@ -7,16 +7,15 @@ namespace Ui {
 class Login;
 }
 
-class Login : public QWidget
-{
-    Q_OBJECT
+class Login : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = nullptr);
-    ~Login();
+  explicit Login(QWidget *parent = nullptr);
+  ~Login();
 
 private:
-    Ui::Login *ui;
+  Ui::Login *ui;
 };
 
 #endif // LOGIN_H

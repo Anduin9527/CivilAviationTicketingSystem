@@ -10,12 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     Date.cpp \
+    Flight.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Date.h \
+    Flight.h \
     login.h \
     mainwindow.h
 
