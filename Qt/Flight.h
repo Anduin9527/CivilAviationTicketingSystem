@@ -17,6 +17,7 @@ public:
   void Add(Flight &F);
   void Set(Flight &F);
   void Delete(string FNumber);
+  Flight *Find(string FNumber);
   Flight() = default;
   ~Flight();
 };

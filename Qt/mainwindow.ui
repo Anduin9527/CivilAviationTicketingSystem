@@ -51,7 +51,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New'; font-size:11pt; font-weight:600; color:#0b0b0b;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>12</x>
@@ -148,7 +148,7 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -378,7 +378,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLineEdit" name="editFNumber"/>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="ediAirways"/>
+      <widget class="QLineEdit" name="editAirways"/>
      </item>
      <item row="4" column="1">
       <widget class="QLineEdit" name="editStartPoint"/>

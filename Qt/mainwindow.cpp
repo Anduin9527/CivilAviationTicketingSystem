@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QPushButton>
+#include <QString>
 #include <ctime>
 #include <iostream>
 MainWindow::MainWindow(QWidget *parent)
@@ -13,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     Flight F;
     Date d1, d2;
     F.FNumber = ui->editFNumber->text().toStdString(); // Qstring->std::string
-    F.Airways = ui->ediAirways->text().toStdString();
+    F.Airways = ui->editAirways->text().toStdString();
     F.StartPoint = ui->editStartPoint->text().toStdString();
     F.EndPoint = ui->editEndPoint->text().toStdString();
     //在这里插入getDate的代码
@@ -22,24 +23,38 @@ MainWindow::MainWindow(QWidget *parent)
     F.RemainTickit = ui->editRemainTickit->text().toInt();
     F.Add(F);
   });
-  //
+  // Set
   connect(ui->btnSet, &QPushButton::clicked, [=] {
     Flight F;
     Date d1, d2;
     F.FNumber = ui->editFNumber->text().toStdString(); // Qstring->std::string
-    F.Airways = ui->ediAirways->text().toStdString();
+    F.Airways = ui->editAirways->text().toStdString();
     F.StartPoint = ui->editStartPoint->text().toStdString();
     F.EndPoint = ui->editEndPoint->text().toStdString();
     //在这里插入getDate的代码
     //在这里插入getDate的代码
     F.Price = ui->editPrice->text().toInt();
     F.RemainTickit = ui->editRemainTickit->text().toInt();
-    //F.Set(F);
+    F.Set(F);
   });
+  // Delete
   connect(ui->btnDel, &QPushButton::clicked, [=] {
     Flight F;
     F.FNumber = ui->editFNumber->text().toStdString();
     F.Delete(F.FNumber);
+  });
+  // Find
+  connect(ui->btnFind, &QPushButton::clicked, [=] {
+    Flight *FP;
+    FP = FP->Find(ui->editFNumber->text().toStdString());
+    ui->editAirways->setText(QString::fromStdString(FP->Airways));
+    ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
+    ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
+    //Date写这里
+    ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
+    ui->editRemainTickit->setText(QString::fromStdString(std::to_string(FP->RemainTickit)));
+
+    delete FP;
   });
 }
 MainWindow::~MainWindow() { delete ui; }

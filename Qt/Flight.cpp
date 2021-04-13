@@ -23,7 +23,7 @@ void Flight::Add(Flight &F) {
   AddFile << F.Price << endl;
   AddFile << F.RemainTickit << endl;
   qDebug() << "写入！";
-  AddFile.close();
+
   std::ofstream File("flight.dat",
                      std::ios::out | std::ios::app); //写入+追加模式
   if (File)
@@ -35,6 +35,7 @@ void Flight::Add(Flight &F) {
   //在这里插入日期
   File << F.Price << endl;
   File << F.RemainTickit << endl;
+  AddFile.close();
   File.close();
 }
 void Flight::Delete(string FNumber) {
@@ -65,5 +66,30 @@ void Flight::Delete(string FNumber) {
   NewFile.close();
   rename("flightTemp.dat", "flight.dat");
 }
-
+void Flight::Set(Flight &F) {
+  Delete(F.FNumber);
+  Add(F);
+}
+Flight *Flight::Find(string FNumber) {
+  std::ifstream File(FNumber + ".dat", std::ios::in); //只读
+  if (File)
+    qDebug() << "查找打开成功";
+  Flight *FP = new Flight;
+  string str;
+  getline(File, str);
+  FP->FNumber = str;
+  getline(File, str);
+  FP->Airways = str;
+  getline(File, str);
+  qDebug() << "1";
+  FP->StartPoint = str;
+  getline(File, str);
+  FP->EndPoint = str;
+  //在这里插入Date
+  getline(File, str);
+  FP->Price = std::stoi(str);
+  getline(File, str);
+  FP->RemainTickit = std::stoi(str);
+  return FP;
+}
 Flight::~Flight() { ; }
