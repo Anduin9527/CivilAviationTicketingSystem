@@ -9,7 +9,6 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Caesar.cpp \
     Date.cpp \
     Flight.cpp \
     login.cpp \
@@ -18,6 +17,7 @@ SOURCES += \
     userwindow.cpp
 
 HEADERS += \
+    Crasa.h \
     Date.h \
     Flight.h \
     login.h \
