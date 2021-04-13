@@ -53,7 +53,6 @@ MainWindow::MainWindow(QWidget *parent)
     //Date写这里
     ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
     ui->editRemainTickit->setText(QString::fromStdString(std::to_string(FP->RemainTickit)));
-
     delete FP;
   });
 }

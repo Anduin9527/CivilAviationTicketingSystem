@@ -13,17 +13,20 @@ SOURCES += \
     Flight.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    userwindow.cpp
 
 HEADERS += \
     Date.h \
     Flight.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    userwindow.h
 
 FORMS += \
     login.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    userwindow.ui
 
 TRANSLATIONS += \
     NJUPTClassDesign_zh_CN.ts

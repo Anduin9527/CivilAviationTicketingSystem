@@ -81,7 +81,6 @@ Flight *Flight::Find(string FNumber) {
   getline(File, str);
   FP->Airways = str;
   getline(File, str);
-  qDebug() << "1";
   FP->StartPoint = str;
   getline(File, str);
   FP->EndPoint = str;
