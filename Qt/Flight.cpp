@@ -10,9 +10,9 @@ using std::string;
 
 void Flight::Add(string FNumber, string Airways, string StartPoint,
                  string EndPoint, Date *PlanDepartureTime,
-                 Date *PlanArrivalTime, int Price, int Tickits)
-{
-  std::ofstream AddFile("fuck.dat", std::ios::out | std::ios::app); //写入+追加模式
+                 Date *PlanArrivalTime, int Price, int Tickits) {
+  std::ofstream AddFile(FNumber + ".dat",
+                        std::ios::out | std::ios::app); //写入+追加模式
 
   if (AddFile)
     qDebug() << "打开成功";
