@@ -170,6 +170,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="editFNumber"/>
+     </item>
      <item row="1" column="0">
       <spacer name="verticalSpacer">
        <property name="layoutDirection">
@@ -198,6 +201,9 @@ p, li { white-space: pre-wrap; }
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="editAirways"/>
      </item>
      <item row="3" column="0">
       <spacer name="verticalSpacer_2">
@@ -228,6 +234,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="editStartPoint"/>
+     </item>
      <item row="5" column="0">
       <spacer name="verticalSpacer_3">
        <property name="layoutDirection">
@@ -256,6 +265,9 @@ p, li { white-space: pre-wrap; }
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="editEndPoint"/>
      </item>
      <item row="7" column="0">
       <spacer name="verticalSpacer_4">
@@ -286,6 +298,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="editPlanDepartureTime"/>
+     </item>
      <item row="9" column="0">
       <spacer name="verticalSpacer_5">
        <property name="layoutDirection">
@@ -302,6 +317,13 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="labelPDT">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item row="10" column="0">
       <widget class="QLabel" name="label_6">
        <property name="layoutDirection">
@@ -314,6 +336,9 @@ p, li { white-space: pre-wrap; }
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="editPlanArrivalTime"/>
      </item>
      <item row="11" column="0">
       <spacer name="verticalSpacer_6">
@@ -331,6 +356,13 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="labelPAT">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item row="12" column="0">
       <widget class="QLabel" name="label_7">
        <property name="layoutDirection">
@@ -343,6 +375,9 @@ p, li { white-space: pre-wrap; }
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="editPrice"/>
      </item>
      <item row="13" column="0">
       <spacer name="verticalSpacer_7">
@@ -373,43 +408,8 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="editFNumber"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="editAirways"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="editStartPoint"/>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLineEdit" name="editEndPoint"/>
-     </item>
-     <item row="8" column="1">
-      <widget class="QLineEdit" name="editPlanDepartureTime"/>
-     </item>
-     <item row="10" column="1">
-      <widget class="QLineEdit" name="editPlanArrivalTime"/>
-     </item>
-     <item row="12" column="1">
-      <widget class="QLineEdit" name="editPrice"/>
-     </item>
      <item row="14" column="1">
       <widget class="QLineEdit" name="editRemainTickit"/>
-     </item>
-     <item row="9" column="1">
-      <widget class="QLabel" name="labelPDT">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="1">
-      <widget class="QLabel" name="labelPAT">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>
@@ -426,6 +426,27 @@ p, li { white-space: pre-wrap; }
      <string> 按照日期排序</string>
     </property>
    </widget>
+   <widget class="QLabel" name="tip">
+    <property name="geometry">
+     <rect>
+      <x>351</x>
+      <y>454</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -433,7 +454,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
