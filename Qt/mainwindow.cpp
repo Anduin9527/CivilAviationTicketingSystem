@@ -214,6 +214,28 @@ MainWindow::MainWindow(QWidget *parent)
           ui->btnAdd->setEnabled(false);
           ui->tip->setText("时间填写错误");
       }
+      QString abvQstr=ui->editPlanDepartureTime->text();
+      int abvyear=curQstr.section("-",0,0).toInt();
+      int abvmonth=curQstr.section("-",1,1).toInt();
+      int abvday=curQstr.section("-",2,2).toInt();
+      int abvhour=curQstr.section("-",3,3).toInt();
+      int abvminute=curQstr.section("-",4,4).toInt();
+      if(year<abvyear){
+          ui->btnAdd->setEnabled(false);
+          ui->tip->setText("时间填写错误");
+      }else if(month<abvmonth){
+          ui->btnAdd->setEnabled(false);
+          ui->tip->setText("时间填写错误");
+      }else if(day<abvday){
+          ui->btnAdd->setEnabled(false);
+          ui->tip->setText("时间填写错误");
+      }else if(hour<abvhour){
+          ui->btnAdd->setEnabled(false);
+          ui->tip->setText("时间填写错误");
+      }else if(minute<abvminute){
+          ui->btnAdd->setEnabled(false);
+          ui->tip->setText("时间填写错误");
+      }
   });
 }
 MainWindow::~MainWindow() { delete ui; }
