@@ -8,25 +8,19 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-void Flight::isLate(Flight &F) {
+bool Flight::isLate(Flight &F) {
   std::ifstream File(F.FNumber + ".dat",
-                     std::ios::in); //读写
+                     std::ios::in); //读
   string buf;
   if (File && File.peek() != EOF) {
-    while (true) {
-      if (!(getline(File, buf))) //未到末尾
-        break;
-      if (buf == F.FNumber) {
-        int n = 5;
-        while (n--)
-          getline(File, buf);
-      }
-    }
-    if (buf > F.PlanDepartureTime)
-      F.Late = true;
+    int n = 8;
+    while (n--)
+      getline(File, buf); //跳过前八行数据，读取第九行late
   }
-  return;
+  qDebug() << QString::fromStdString(buf);
+  return std::stoi(buf);
 }
+
 bool Flight::Add(Flight &F) {
   bool flag = false;
   std::fstream AddFile(FNumber + ".dat",
@@ -44,6 +38,7 @@ bool Flight::Add(Flight &F) {
     AddFile << F.PlanArrivalTime << endl;
     AddFile << F.Price << endl;
     AddFile << F.RemainTickit << endl;
+    AddFile << F.Late << endl;
     qDebug() << "写入！";
     flag = 1;
   }
@@ -60,6 +55,7 @@ bool Flight::Add(Flight &F) {
     File << F.PlanArrivalTime << endl;
     File << F.Price << endl;
     File << F.RemainTickit << endl;
+    File << F.Late << endl;
     AddFile.close();
     File.close();
   }
@@ -86,7 +82,7 @@ bool Flight::Delete(string FNumber) {
       if (!(getline(File, buf))) //未到末尾
         break;
       if (buf == FNumber) {
-        int n = 8;
+        int n = 9; // 9行数据为一组
         while (n--)
           getline(File, buf);
       }
@@ -100,7 +96,18 @@ bool Flight::Delete(string FNumber) {
   return flag;
 }
 bool Flight::Set(Flight &F) {
-  isLate(F);
+  std::ifstream File(F.FNumber + ".dat",
+                     std::ios::in); //读
+  string buf;
+  bool flag; //更新是否晚点
+  if (File && File.peek() != EOF) {
+    int n = 4;
+    while (n--)
+      getline(File, buf); //跳过前4行数据，读取第5行PDT
+  }
+  if (buf > F.PlanDepartureTime)
+    F.Late = 1;
+  File.close();
   return (Delete(F.FNumber) && Add(F));
 }
 Flight *Flight::Find(string FNumber) {
@@ -125,6 +132,9 @@ Flight *Flight::Find(string FNumber) {
     FP->Price = std::stoi(str);
     getline(File, str);
     FP->RemainTickit = std::stoi(str);
+    getline(File, str);
+    FP->Late = std::stoi(str);
+    File.close();
   } else
     FP = nullptr;
   return FP;

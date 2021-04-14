@@ -12,6 +12,10 @@
 UserWindow::UserWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::UserWindow) {
   ui->setupUi(this);
+  ui->labelPAT->setVisible(false);
+  ui->labelPDT->setVisible(false);
+  ui->labelPAT->setStyleSheet("color:red;");
+  ui->labelPDT->setStyleSheet("color:red;");
   // Find
   connect(ui->btnFind, &QPushButton::clicked, [=] {
     Flight *FP;
@@ -28,14 +32,13 @@ UserWindow::UserWindow(QWidget *parent)
       ui->editRemainTickit->setText(
           QString::fromStdString(std::to_string(FP->RemainTickit)));
       QMessageBox::information(this, "成功", "查询成功!");
+      FP->isLate(*FP);
       if (FP->Late) {
-        ui->labelPAT->setDisabled(false);
-        ui->labelPDT->setDisabled(false);
-        ui->labelPAT->setStyleSheet("QLabel{color: red}");
-        ui->labelPDT->setStyleSheet("QLabel{color: red}");
+        ui->labelPAT->setVisible(true);
+        ui->labelPDT->setVisible(true);
       } else {
-        ui->labelPAT->setDisabled(true);
-        ui->labelPDT->setDisabled(true);
+        ui->labelPAT->setVisible(false);
+        ui->labelPDT->setVisible(false);
       }
     } else
       QMessageBox::information(this, "失败",

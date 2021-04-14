@@ -12,12 +12,12 @@ public:
   string PlanArrivalTime;
   int Price;
   int RemainTickit;
-  bool Late{false};
+  bool Late{0};//初始化为0
 
   bool Add(Flight &F);
   bool Set(Flight &F);
   bool Delete(string FNumber);
-  void isLate(Flight &F);
+  bool isLate(Flight &F);
   Flight *Find(string FNumber);
   Flight() = default;
   ~Flight();
