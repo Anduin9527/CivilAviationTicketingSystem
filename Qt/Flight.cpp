@@ -11,12 +11,13 @@ using std::string;
 
 bool Flight::Add(Flight &F) {
   bool flag = false;
-  std::fstream AddFile(FNumber+".dat",
+  std::fstream AddFile(FNumber + ".dat",
                        std::ios::in | std::ios::out | std::ios::app); //读写
 
   if (AddFile && AddFile.peek() == EOF) //文件正确打开且空
   {
     qDebug() << "打开成功!";
+    AddFile.clear();//JC_YYDS！！！
     AddFile << F.FNumber << endl;
     AddFile << F.Airways << endl;
     AddFile << F.StartPoint << endl;

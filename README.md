@@ -7,6 +7,7 @@
 ## TO DO
 
 - [ ] Date类
+  - [ ] 判断日期格式
 - [x] Flight类
   - [x] Add
   - [x] Delete
