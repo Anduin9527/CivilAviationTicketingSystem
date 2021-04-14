@@ -14,9 +14,9 @@ public:
   int RemainTickit;
   bool Late;
 
-  void Add(Flight &F);
-  void Set(Flight &F);
-  void Delete(string FNumber);
+  bool Add(Flight &F);
+  bool Set(Flight &F);
+  bool Delete(string FNumber);
   Flight *Find(string FNumber);
   Flight() = default;
   ~Flight();
