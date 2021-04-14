@@ -416,19 +416,6 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="btnSort">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>450</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string> 按照日期排序</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="tip">
     <property name="geometry">
      <rect>
@@ -449,6 +436,56 @@ p, li { white-space: pre-wrap; }
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>460</y>
+      <width>271</width>
+      <height>83</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btnSort">
+       <property name="minimumSize">
+        <size>
+         <width>131</width>
+         <height>81</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>131</width>
+         <height>81</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>生成日期排序文件</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnFindMore">
+       <property name="minimumSize">
+        <size>
+         <width>131</width>
+         <height>81</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>131</width>
+         <height>81</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>查询更多</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

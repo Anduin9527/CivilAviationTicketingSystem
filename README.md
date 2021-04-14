@@ -6,15 +6,15 @@
 
 ## TO DO
 
-- [ ] Date类
-  - [ ] 判断日期格式
+- [x] Date类
+  - [x] 判断日期格式
 - [x] Flight类
   - [x] Add
   - [x] Delete
   - [x] Set
   - [x] Find
   - [x] 晚点
-- [ ] UI
+- [x] UI
   - [x] Login
   - [x] Admin
   - [x] user
@@ -24,6 +24,7 @@
   - [ ] 订票
   - [ ] 取票
   - [ ] 诚信系统
+  - [x] 用户账户系统
 
 ## class Flight
 
