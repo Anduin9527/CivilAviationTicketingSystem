@@ -15,8 +15,8 @@
   - [ ] 晚点
 - [ ] UI
   - [x] Login
-  - [ ] Admin
-  - [ ] user
+  - [x] Admin
+  - [x] user
 - [ ] Sort
 - [ ] 票务管理
   - [ ] 退票
