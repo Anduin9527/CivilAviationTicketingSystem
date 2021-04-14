@@ -12,6 +12,10 @@ using std::endl;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
+  ui->labelPAT->setVisible(false);
+  ui->labelPDT->setVisible(false);
+  ui->labelPAT->setStyleSheet("color:red;");
+  ui->labelPDT->setStyleSheet("color:red;");
   // Add
   connect(ui->btnAdd, &QPushButton::clicked, [=] {
     if (!ui->editFNumber->text().isEmpty() &&
@@ -31,9 +35,17 @@ MainWindow::MainWindow(QWidget *parent)
       F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
       F.Price = ui->editPrice->text().toInt();
       F.RemainTickit = ui->editRemainTickit->text().toInt();
-      if (F.Add(F))
+      if (F.Add(F)) {
         QMessageBox::information(this, "成功", "添加航班信息成功!");
-      else
+        F.isLate(F);
+        if (F.Late) {
+          ui->labelPAT->setVisible(true);
+          ui->labelPDT->setVisible(true);
+        } else {
+          ui->labelPAT->setVisible(false);
+          ui->labelPDT->setVisible(false);
+        }
+      } else
         QMessageBox::information(this, "失败！",
                                  "请检查航班号是否已经被添加过!");
     } else
@@ -58,9 +70,17 @@ MainWindow::MainWindow(QWidget *parent)
       F.PlanArrivalTime = ui->editPlanArrivalTime->text().toStdString();
       F.Price = ui->editPrice->text().toInt();
       F.RemainTickit = ui->editRemainTickit->text().toInt();
-      if (F.Set(F))
+      if (F.Set(F)) {
+        F.isLate(F);
         QMessageBox::information(this, "成功", "更新航班信息成功!");
-      else
+        if (F.Late) {
+          ui->labelPAT->setVisible(true);
+          ui->labelPDT->setVisible(true);
+        } else {
+          ui->labelPAT->setVisible(false);
+          ui->labelPDT->setVisible(false);
+        }
+      } else
         QMessageBox::information(this, "失败", "请检查航班号是否已录入系统");
     } else
       QMessageBox::information(this, "错误！", "请检查数据是否完整");
@@ -94,6 +114,14 @@ MainWindow::MainWindow(QWidget *parent)
       ui->editRemainTickit->setText(
           QString::fromStdString(std::to_string(FP->RemainTickit)));
       QMessageBox::information(this, "成功", "查询成功!");
+      FP->isLate(*FP);
+      if (FP->Late) {
+        ui->labelPAT->setVisible(true);
+        ui->labelPDT->setVisible(true);
+      } else {
+        ui->labelPAT->setVisible(false);
+        ui->labelPDT->setVisible(false);
+      }
     } else
       QMessageBox::information(this, "失败",
                                "查询失败，请检查航班号是否已录入系统");

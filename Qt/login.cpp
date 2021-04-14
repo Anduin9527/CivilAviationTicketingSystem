@@ -14,7 +14,7 @@ Login::Login(QWidget *parent) : QWidget(parent), ui(new Ui::Login) {
     QString name = ui->name->text();
     QString password = ui->password->text();
     // qDebug() << name << password;
-    if (name == "admin" && password == "sast!") {
+    if (name == "admin" && password == "sast") {
       this->close();
       QMessageBox::information(
           this, "欢迎您!", "道路千万条，数据第一条，操作不规范，亲人两行泪");

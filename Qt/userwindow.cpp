@@ -16,16 +16,30 @@ UserWindow::UserWindow(QWidget *parent)
   connect(ui->btnFind, &QPushButton::clicked, [=] {
     Flight *FP;
     FP = FP->Find(ui->editFNumber->text().toStdString());
-    ui->editAirways->setText(QString::fromStdString(FP->Airways));
-    ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
-    ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
-    ui->editPlanDepartureTime->setText(
-        QString::fromStdString(FP->PlanDepartureTime));
-    ui->editPlanArrivalTime->setText(
-        QString::fromStdString(FP->PlanArrivalTime));
-    ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
-    ui->editRemainTickit->setText(
-        QString::fromStdString(std::to_string(FP->RemainTickit)));
+    if (FP != nullptr) {
+      ui->editAirways->setText(QString::fromStdString(FP->Airways));
+      ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
+      ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
+      ui->editPlanDepartureTime->setText(
+          QString::fromStdString(FP->PlanDepartureTime));
+      ui->editPlanArrivalTime->setText(
+          QString::fromStdString(FP->PlanArrivalTime));
+      ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
+      ui->editRemainTickit->setText(
+          QString::fromStdString(std::to_string(FP->RemainTickit)));
+      QMessageBox::information(this, "成功", "查询成功!");
+      if (FP->Late) {
+        ui->labelPAT->setDisabled(false);
+        ui->labelPDT->setDisabled(false);
+        ui->labelPAT->setStyleSheet("QLabel{color: red}");
+        ui->labelPDT->setStyleSheet("QLabel{color: red}");
+      } else {
+        ui->labelPAT->setDisabled(true);
+        ui->labelPDT->setDisabled(true);
+      }
+    } else
+      QMessageBox::information(this, "失败",
+                               "查询失败，请检查航班号是否输入正确!");
     delete FP;
   });
   connect(ui->btnRegist, &QPushButton::clicked, [=] {

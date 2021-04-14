@@ -8,7 +8,25 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-
+void Flight::isLate(Flight &F) {
+  std::ifstream File(F.FNumber + ".dat",
+                     std::ios::in); //读写
+  string buf;
+  if (File && File.peek() != EOF) {
+    while (true) {
+      if (!(getline(File, buf))) //未到末尾
+        break;
+      if (buf == F.FNumber) {
+        int n = 5;
+        while (n--)
+          getline(File, buf);
+      }
+    }
+    if (buf > F.PlanDepartureTime)
+      F.Late = true;
+  }
+  return;
+}
 bool Flight::Add(Flight &F) {
   bool flag = false;
   std::fstream AddFile(FNumber + ".dat",
@@ -17,7 +35,7 @@ bool Flight::Add(Flight &F) {
   if (AddFile && AddFile.peek() == EOF) //文件正确打开且空
   {
     qDebug() << "打开成功!";
-    AddFile.clear();//JC_YYDS！！！
+    AddFile.clear(); // JC_YYDS！！！
     AddFile << F.FNumber << endl;
     AddFile << F.Airways << endl;
     AddFile << F.StartPoint << endl;
@@ -81,7 +99,10 @@ bool Flight::Delete(string FNumber) {
   rename("flightTemp.dat", "flight.dat");
   return flag;
 }
-bool Flight::Set(Flight &F) { return (Delete(F.FNumber) && Add(F)); }
+bool Flight::Set(Flight &F) {
+  isLate(F);
+  return (Delete(F.FNumber) && Add(F));
+}
 Flight *Flight::Find(string FNumber) {
   std::ifstream File(FNumber + ".dat", std::ios::in); //只读
   Flight *FP = new Flight;
