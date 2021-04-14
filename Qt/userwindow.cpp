@@ -19,7 +19,10 @@ UserWindow::UserWindow(QWidget *parent)
     ui->editAirways->setText(QString::fromStdString(FP->Airways));
     ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
     ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
-    // Date写这里
+    ui->editPlanDepartureTime->setText(
+        QString::fromStdString(FP->PlanDepartureTime));
+    ui->editPlanArrivalTime->setText(
+        QString::fromStdString(FP->PlanArrivalTime));
     ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
     ui->editRemainTickit->setText(
         QString::fromStdString(std::to_string(FP->RemainTickit)));
