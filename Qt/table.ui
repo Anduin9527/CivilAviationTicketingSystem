@@ -96,7 +96,7 @@
    <widget class="QPushButton" name="btn">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>380</x>
       <y>470</y>
       <width>181</width>
       <height>61</height>
@@ -132,7 +132,7 @@
      <item>
       <widget class="QLineEdit" name="editDate">
        <property name="inputMask">
-        <string>0000-00-00-00-00</string>
+        <string/>
        </property>
        <property name="placeholderText">
         <string>YYYY-MM-DD-HH-mm</string>
@@ -170,6 +170,19 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="btnNew">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>470</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>重置状态</string>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

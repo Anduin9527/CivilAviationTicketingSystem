@@ -123,6 +123,15 @@ Table::Table(QWidget *parent) : QMainWindow(parent), ui(new Ui::Table) {
         ui->table->setRowHidden(i, true);
     }
   });
+  connect(ui->btnNew, &QPushButton::clicked, [=] {
+    ui->editAirways->setText("");
+    ui->editDate->setText("");
+    ui->editStart->setText("");
+    ui->editEnd->setText("");
+    int nRow = ui->table->rowCount(); //获取行数
+    for (int i = 0; i < nRow; i++)
+      ui->table->setRowHidden(i,false);
+  });
 }
 
 Table::~Table() { delete ui; }
