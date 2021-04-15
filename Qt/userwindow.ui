@@ -285,7 +285,7 @@
      <rect>
       <x>40</x>
       <y>520</y>
-      <width>500</width>
+      <width>711</width>
       <height>21</height>
      </rect>
     </property>
@@ -299,7 +299,7 @@
      </font>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>欢迎使用南邮航空票务系统！</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnFindMore">
@@ -315,7 +315,7 @@
      <string>查询更多</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -480,7 +480,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

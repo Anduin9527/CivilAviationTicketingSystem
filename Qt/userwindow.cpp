@@ -175,7 +175,7 @@ UserWindow::UserWindow(QWidget *parent)
       string flNum=ui->editFNumber->text().toStdString();
       Flight *FP=FP->Find(flNum);
       if(FP==nullptr){
-          ui->tip->setText("无法查询到此航班！");
+          ui->tip->setText("您未预订此航班！");
       }else{
           //获取数据库中计划时间
           int planYear=QString::fromStdString(FP->PlanDepartureTime).section("-",0,0).toInt();
@@ -200,7 +200,7 @@ UserWindow::UserWindow(QWidget *parent)
 
           if(FP->RemainTickit>0&&delteMinute>30)
           {
-              FP->RemainTickit--;
+              FP->RemainTickit++;
               ui->editAirways->setText(QString::fromStdString(FP->Airways));
               ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
               ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
@@ -214,7 +214,7 @@ UserWindow::UserWindow(QWidget *parent)
               FP->Set(*FP);
               ui->tip->setText(QString::fromStdString("尊敬的乘客，您已成功退订航班号为"+FP->FNumber+"的机票！"));
           }else{
-               ui->tip->setText(QString::fromStdString("尊敬的乘客，航班号为"+FP->FNumber+"的机票距离起飞不到30分钟，无法退票！"));
+               ui->tip->setText(QString::fromStdString("尊敬的乘客，"+FP->FNumber+"号航班距离起飞不到30分钟，无法退票！"));
           }
       }
 
