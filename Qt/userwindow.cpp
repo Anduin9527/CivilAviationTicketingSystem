@@ -83,20 +83,38 @@ int minuteDifference(Date d1, Date d2) {
 UserWindow::UserWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::UserWindow) {
   ui->setupUi(this);
+  //初始化晚点label
+  ui->labelPAT->setVisible(false);
+  ui->labelPDT->setVisible(false);
+  ui->labelPAT->setStyleSheet("color:red;");
+  ui->labelPDT->setStyleSheet("color:red;");
   // Find
   connect(ui->btnFind, &QPushButton::clicked, [=] {
     Flight *FP;
     FP = FP->Find(ui->editFNumber->text().toStdString());
-    ui->editAirways->setText(QString::fromStdString(FP->Airways));
-    ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
-    ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
-    ui->editPlanDepartureTime->setText(
-        QString::fromStdString(FP->PlanDepartureTime));
-    ui->editPlanArrivalTime->setText(
-        QString::fromStdString(FP->PlanArrivalTime));
-    ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
-    ui->editRemainTickit->setText(
-        QString::fromStdString(std::to_string(FP->RemainTickit)));
+    if (FP != nullptr) {
+      ui->editAirways->setText(QString::fromStdString(FP->Airways));
+      ui->editStartPoint->setText(QString::fromStdString(FP->StartPoint));
+      ui->editEndPoint->setText(QString::fromStdString(FP->EndPoint));
+      ui->editPlanDepartureTime->setText(
+          QString::fromStdString(FP->PlanDepartureTime));
+      ui->editPlanArrivalTime->setText(
+          QString::fromStdString(FP->PlanArrivalTime));
+      ui->editPrice->setText(QString::fromStdString(std::to_string(FP->Price)));
+      ui->editRemainTickit->setText(
+          QString::fromStdString(std::to_string(FP->RemainTickit)));
+      QMessageBox::information(this, "成功", "查询成功!");
+      FP->isLate(*FP);
+      if (FP->Late) {
+        ui->labelPAT->setVisible(true);
+        ui->labelPDT->setVisible(true);
+      } else {
+        ui->labelPAT->setVisible(false);
+        ui->labelPDT->setVisible(false);
+      }
+    } else
+      QMessageBox::information(this, "失败",
+                               "查询失败，请检查航班号是否已录入系统");
     delete FP;
   });
   connect(ui->btnRegist, &QPushButton::clicked, [=] {
@@ -104,7 +122,7 @@ UserWindow::UserWindow(QWidget *parent)
     string password = ui->editPasswd->text().toStdString();
     bool fID = true, fpasswd = true;
     for (auto i : ID)
-      if (!isdigit(i) &&i != 'X' && i != 'x')
+      if (!isdigit(i) && i != 'X' && i != 'x')
         fID = false;
     for (auto i : password)
       if (!isalnum(i))
