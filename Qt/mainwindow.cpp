@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "Flight.h"
+#include "Sort.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QPushButton>
@@ -320,6 +321,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->tip->setText("时间填写错误");
     }
 
+  });
+  // Sort
+  connect(ui->btnSort, &QPushButton::clicked, [=] {
+    Sort();
+    QMessageBox::information(this, "成功", "排序成功!");
   });
 }
 MainWindow::~MainWindow() { delete ui; }

@@ -20,6 +20,7 @@ HEADERS += \
     Crasa.h \
     Date.h \
     Flight.h \
+    Sort.h \
     login.h \
     mainwindow.h \
     userwindow.h
