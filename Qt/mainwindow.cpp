@@ -186,7 +186,7 @@ MainWindow::MainWindow(QWidget *parent)
                                "查询失败，请检查航班号是否已录入系统");
     delete FP;
   });
-  connect(ui->editPlanDepartureTime, &QLineEdit::editingFinished, [=] {
+  connect(ui->editPlanDepartureTime, &QLineEdit::textChanged, [=] {
     ui->btnAdd->setEnabled(true);
     ui->tip->setText("");
     QString curQstr = ui->editPlanDepartureTime->text();
@@ -202,45 +202,45 @@ MainWindow::MainWindow(QWidget *parent)
     }
     if (curLen < maxLen || curQstr.isEmpty()) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (year < 0) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (month < 1 || month > 12) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
          month == 10 || month == 12) &&
         (day < 1 || day > 31)) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((month == 4 || month == 5 || month == 6 || month == 9 || month == 11) &&
         (day < 1 || day > 30)) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((year % 4 == 0 && year % 100 > 0) || year % 400 == 0) {
       if (month == 2 && day > 29) {
         ui->btnAdd->setEnabled(false);
-        ui->tip->setText("时间填写错误");
+        ui->tip->setText("注意填写正确的时间");
       }
     } else {
       if (month == 2 && day > 28) {
         ui->btnAdd->setEnabled(false);
-        ui->tip->setText("时间填写错误");
+        ui->tip->setText("注意填写正确的时间");
       }
     }
     if (hour < 0 || hour > 23) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (minute < 0 || minute > 59) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     QString arrivalQstr = ui->editPlanArrivalTime->text();
     int year_ = arrivalQstr.section("-", 0, 0).toInt();
@@ -253,10 +253,10 @@ MainWindow::MainWindow(QWidget *parent)
     int deltetime = minuteDifference_(time, time_);
     if (deltetime < 1) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
   });
-  connect(ui->editPlanArrivalTime, &QLineEdit::editingFinished, [=] {
+  connect(ui->editPlanArrivalTime, &QLineEdit::textChanged, [=] {
     ui->btnAdd->setEnabled(true);
     ui->tip->setText("");
     QString curQstr = ui->editPlanArrivalTime->text();
@@ -272,45 +272,45 @@ MainWindow::MainWindow(QWidget *parent)
     }
     if (curLen < maxLen || curQstr.isEmpty()) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (year < 0) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (month < 1 || month > 12) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||
          month == 10 || month == 12) &&
         (day < 1 || day > 31)) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((month == 4 || month == 5 || month == 6 || month == 9 || month == 11) &&
         (day < 1 || day > 30)) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if ((year % 4 == 0 && year % 100 > 0) || year % 400 == 0) {
       if (month == 2 && day > 29) {
         ui->btnAdd->setEnabled(false);
-        ui->tip->setText("时间填写错误");
+        ui->tip->setText("注意填写正确的时间");
       }
     } else {
       if (month == 2 && day > 28) {
         ui->btnAdd->setEnabled(false);
-        ui->tip->setText("时间填写错误");
+        ui->tip->setText("注意填写正确的时间");
       }
     }
     if (hour < 0 || hour > 23) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     if (minute < 0 || minute > 59) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
     QString departureQstr = ui->editPlanDepartureTime->text();
     int _year = departureQstr.section("-", 0, 0).toInt();
@@ -323,7 +323,7 @@ MainWindow::MainWindow(QWidget *parent)
     int deltetime = minuteDifference_(_time, time);
     if (deltetime < 1) {
       ui->btnAdd->setEnabled(false);
-      ui->tip->setText("时间填写错误");
+      ui->tip->setText("注意填写正确的时间");
     }
   });
   // Sort
