@@ -130,25 +130,41 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QDateEdit" name="editDate"/>
+      <widget class="QLineEdit" name="editDate">
+       <property name="inputMask">
+        <string>0000-00-00-00-00</string>
+       </property>
+       <property name="placeholderText">
+        <string>YYYY-MM-DD-HH-mm</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="editStart">
        <property name="text">
-        <string>起点</string>
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>出发地</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="editEnd">
        <property name="text">
-        <string>终点</string>
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>目的地</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="editAirways">
        <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
         <string>航空公司</string>
        </property>
       </widget>
