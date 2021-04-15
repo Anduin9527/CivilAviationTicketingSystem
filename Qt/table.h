@@ -1,13 +1,13 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class Table;
 }
 
-class Table : public QWidget
+class Table : public QMainWindow
 {
     Q_OBJECT
 

@@ -10,9 +10,11 @@ CONFIG += c++11
 
 SOURCES += \
     Flight.cpp \
+    Sort.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    table.cpp \
     userwindow.cpp
 
 HEADERS += \
@@ -21,11 +23,13 @@ HEADERS += \
     Sort.h \
     login.h \
     mainwindow.h \
+    table.h \
     userwindow.h
 
 FORMS += \
     login.ui \
     mainwindow.ui \
+    table.ui \
     userwindow.ui
 
 TRANSLATIONS += \
