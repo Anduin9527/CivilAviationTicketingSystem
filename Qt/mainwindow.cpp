@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QString>
+#include <QValidator>
 #include <ctime>
 #include <iostream>
 using std::cout;
@@ -51,6 +52,7 @@ int daysInMonth_(int year, int month) {
       return 28;
     }
   }
+  return 0;
 }
 int daysInYear_(int year, int month, int day) {
   int totalDays = 0;
@@ -83,7 +85,8 @@ MainWindow::MainWindow(QWidget *parent)
   ui->labelPDT->setVisible(false);
   ui->labelPAT->setStyleSheet("color:red;");
   ui->labelPDT->setStyleSheet("color:red;");
-
+  ui->editPrice->setValidator(new QIntValidator(this));
+  ui->editRemainTickit->setValidator(new QIntValidator(this));
   // Add
   connect(ui->btnAdd, &QPushButton::clicked, [=] {
     if (!ui->editFNumber->text().isEmpty() &&

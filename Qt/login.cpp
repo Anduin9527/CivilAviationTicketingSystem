@@ -27,8 +27,7 @@ Login::Login(QWidget *parent) : QWidget(parent), ui(new Ui::Login) {
   connect(ui->btn_User, &QPushButton::clicked, [=] {
     this->close();
     UserWindow *U = new UserWindow;
-    QMessageBox::information(
-        this, "欢迎您!", "亲爱的旅客，欢迎来到南邮航空！");
+    QMessageBox::information(this, "欢迎您!", "亲爱的旅客，欢迎来到南邮航空！");
     U->show();
   });
 }
