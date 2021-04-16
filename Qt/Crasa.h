@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 bool isRegist(string &ID)
 {
   ifstream File("Account.dat",
@@ -24,6 +25,7 @@ bool isRegist(string &ID)
 }
 string Encode(string &str, int k = 5) //加密
 {
+
   for (unsigned int i = 0; i < str.length(); i++)
   {
     if (97 <= str[i] && str[i] <= 122) //小写
