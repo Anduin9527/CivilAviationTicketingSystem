@@ -24,7 +24,9 @@ HEADERS += \
     login.h \
     mainwindow.h \
     table.h \
-    userwindow.h
+    userwindow.h \
+    Minutediff.h \
+    User.h
 
 FORMS += \
     login.ui \
