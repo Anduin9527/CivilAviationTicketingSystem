@@ -11,13 +11,10 @@ using namespace std;
 typedef struct User{
     string userAccount;
     string password;
+    int credit;
     int ticket;
     string airway;
-
-    int credit;
 }User;
-
-
 
 string setUser(string ID,string airway,int setTicket){
     string status="OK";
@@ -25,7 +22,7 @@ string setUser(string ID,string airway,int setTicket){
     //toomany
     //nocredit
     //noticket
-
+    bool ifcredit=true;
 
     if(setTicket==1||setTicket==-1)
     {
@@ -34,6 +31,7 @@ string setUser(string ID,string airway,int setTicket){
         fstream acc("Account.dat",ios::in);
         fstream tempFile("temp.dat",ios::out);
         if(setTicket==1){
+
             while(true){
                 if(!getline(acc,temp)){
                     break;
@@ -47,14 +45,26 @@ string setUser(string ID,string airway,int setTicket){
             tempFile<<temp<<endl;//write target ID
             getline(acc,temp);
             tempFile<<temp<<endl;//write target pwd
-            getline(acc,temp);//read ticket
+            getline(acc,temp);  //read credit
+            if(stoi(temp)){
+                tempFile<<temp<<endl;
+            }else{
+                tempFile<<temp<<endl;
+                status="nocredit";
+                ifcredit=false;
+            }
+            getline(acc,temp);  //read ticket
             if(stoi(temp)>1){
                 status="toomany";
                 tempFile<<temp<<endl;
             }else{
-                tempFile<<stoi(temp)+1<<endl;
+                if(ifcredit)
+                {tempFile<<stoi(temp)+1<<endl;}
+                else{
+                    status="nocredit";
+                }
             }
-            getline(acc,temp);//read airway
+            getline(acc,temp);  //read airway
             if(temp.length()>0){
                 status="otherAirway";
                 tempFile<<temp<<endl;
@@ -62,13 +72,6 @@ string setUser(string ID,string airway,int setTicket){
                 tempFile<<airway<<endl;
             }
 
-            getline(acc,temp);//read credit
-            if(stoi(temp)){
-                tempFile<<temp<<endl;
-            }else{
-                tempFile<<temp<<endl;
-                status="nocredit";
-            }
             while (true)
             {
               if (!getline(acc, temp))
@@ -102,6 +105,8 @@ string setUser(string ID,string airway,int setTicket){
             tempFile<<temp<<endl;//write target ID
             getline(acc,temp);
             tempFile<<temp<<endl;//write target pwd
+            getline(acc,temp);//read credit
+            tempFile<<temp<<endl;
             getline(acc,temp);//read ticket
             if(stoi(temp)>0){
                 tempFile<<to_string(stoi(temp)-1)<<endl;
@@ -116,8 +121,7 @@ string setUser(string ID,string airway,int setTicket){
             }else{
                 tempFile<<endl;
             }
-            getline(acc,temp);//read credit
-            tempFile<<temp<<endl;
+
             while (true)
             {
               if (!getline(acc, temp))
@@ -137,6 +141,7 @@ string setUser(string ID,string airway,int setTicket){
     }else{
         qDebug() << "函数调用错误!";
     }
+    if(!ifcredit) status= "nocredit";
     return status;
 }
 void addUser(string ID,string psw){
@@ -147,13 +152,13 @@ void addUser(string ID,string psw){
     }
     addFile<<ID<<endl;
     addFile<<psw<<endl;
-    addFile<<endl;
+    addFile<<"1"<<endl;
     addFile<<0<<endl;
-    addFile<<1<<endl;
+    addFile<<endl;
     qDebug() << "user has been added!";
     addFile.close();
 }
-string takeUser(string ID,string airway){
+string takeUser(string ID,string airway,bool iflate){//iflate==1 is late
     int restTicket=0;
     string temp;
     string status="OK";
@@ -171,8 +176,14 @@ string takeUser(string ID,string airway){
         }
     }
     tempFile<<temp<<endl;//write target ID
-    getline(acc,temp);
+    getline(acc,temp);  //read pwd
     tempFile<<temp<<endl;//write target pwd
+    getline(acc,temp);//read credit
+    if(iflate){
+        tempFile<<to_string(0)<<endl;
+    }else{
+        tempFile<<to_string(1)<<endl;
+    }
     getline(acc,temp);//read ticket
     if(stoi(temp)>0){
         tempFile<<to_string(stoi(temp)-1)<<endl;
@@ -187,9 +198,7 @@ string takeUser(string ID,string airway){
     }else{
         tempFile<<endl;
     }
-    //getline(acc,temp);//read credit
 
-    tempFile<<temp<<endl;
     while (true)
     {
       if (!getline(acc, temp))
@@ -207,6 +216,5 @@ string takeUser(string ID,string airway){
     rename("temp.dat", "Account.dat");
     return status;
 }
-
 
 #endif // USER_H

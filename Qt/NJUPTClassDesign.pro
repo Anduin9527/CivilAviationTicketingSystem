@@ -20,7 +20,9 @@ SOURCES += \
 HEADERS += \
     Crasa.h \
     Flight.h \
+    Minutediff.h \
     Sort.h \
+    User.h \
     login.h \
     mainwindow.h \
     table.h \
