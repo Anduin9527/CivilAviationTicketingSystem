@@ -40,24 +40,6 @@ string Encode(string &str, int k = 5) //加密
 }
 string Decode(string &str, int k = 5) //解密
 {
-//  ifstream File("Account.dat",
-//                std::ios::in);
-//  string str;
-//  if (File.is_open())
-//  {
-//    while (true)
-//    {
-//      if (!(getline(File, str))) //未到末尾
-//        break;
-//      if (str == ID)
-//      {
-//        getline(File, str);
-//        break;
-//      }
-//    }
-//  }
-//  File.close();
-  // cout << str;
   for (unsigned int i = 0; i < str.length(); i++)
   {
     if (97 <= str[i] && str[i] <= 122) //小写
@@ -66,6 +48,7 @@ string Decode(string &str, int k = 5) //解密
       str[i] = ((str[i] - k - 90) % 26) + 90;
     else if (48 <= str[i] && str[i] <= 57) //数字
       str[i] = ((str[i] - k - 57) % 10) + 57;
+    //git
   }
   return str;
 }
