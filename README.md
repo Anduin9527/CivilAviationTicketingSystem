@@ -4,6 +4,8 @@
 
 ![CAT](https://i.loli.net/2021/04/12/ecmFQEv29pq5iKj.png)
 
+![image-20210417210514593](https://i.loli.net/2021/04/17/2lLOZ5w8sB9et1X.png)
+
 ## TO DO
 
 - [x] Date类
@@ -18,42 +20,12 @@
   - [x] Login
   - [x] Admin
   - [x] user
-- [ ] Sort
-- [ ] 票务管理
-  - [ ] 退票
-  - [ ] 订票
-  - [ ] 取票
-  - [ ] 诚信系统
+- [x] Sort
+- [x] 票务管理
+  - [x] 退票
+  - [x] 订票
+  - [x] 取票
+  - [x] 诚信系统
   - [x] 用户账户系统
 
-## class Flight
-
-#### 数据成员 
-
-\+ FNumber string
-
-\+ Airways string
-
-\+ StartPoint string
-
-\+ EndPoint string
-
-\+ PlanDepartureTime *Date
-
-\+ PlanArrivalTime *Date
-
-\+ Price int
-
-\+ RemainTickit int
-
-\+ Late bool
-
-#### 函数成员
-
-\+ void Add(&Flight)
-
-\+ void Set(&Flight)
-
-\+ void Delete(FNumber)
-
-
+# 鸣谢我达子哥@bubu
